@@ -24,12 +24,13 @@ module.exports = {
             isEmail: true,
           },
         },
-        synthPatchId: {
-          type: Sequelize.DataTypes.INTEGER,
+        password: {
+          type: Sequelize.DataTypes.STRING,
+          allowNull: false,
         },
         createdAt: Sequelize.DataTypes.DATE,
         updatedAt: Sequelize.DataTypes.DATE,
-      }
+      },
     );
   },
 

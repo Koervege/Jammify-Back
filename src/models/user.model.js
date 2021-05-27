@@ -1,29 +1,30 @@
 module.exports = (sequelize, DataTypes) => {
   const userSchema = {
     name: {
-      tyoe: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
-      type: DataTypes.String,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
         isEmail: true,
       },
     },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   };
 
   const userOps = {
     timestamps: true,
     tableName: 'users',
+    initialAutoIncrement: 2,
   };
 
-  const User = sequelize.define('User', userSchema, userOps);
-
-  User.associate = (db) => {
-    db.User.hasMany(db.SynthPatch);
-  };
+  const User = sequelize.define('User', userSchema, userOps)
 
   return User;
-};
+}; 
